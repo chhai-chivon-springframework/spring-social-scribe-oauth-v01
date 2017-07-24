@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>Login - KnongDai</title>
+    
+    <!-- BOOTSTRAP CSS (REQUIRED ALL PAGE)-->
+    <!--  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+    
+    <!-- Custom Css -->
+    <link th:href="@{/resources/files/css/style.css}" type="text/css" rel="stylesheet">
+     <link th:href="@{/resources/files/css/register-style.css}" type="text/css" rel="stylesheet">
+    <!--Google Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<!--Google Fonts-->
+	<script>var __links = document.querySelectorAll('a');function __linkClick(e) { parent.window.postMessage(this.href, '*');} ;for (var i = 0, l = __links.length; i < l; i++) {if ( __links[i].getAttribute('data-t') == '_blank' ) { __links[i].addEventListener('click', __linkClick, false);}}</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    
+
+
+    <style>
+    	/* @import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'); */
+
+			/* REQUIRED */
+			.page-alerts {
+			    margin-bottom: 20px;
+			}
+			
+			.page-alerts .page-alert {
+			    border-radius: 0;
+			    margin-bottom: 0;
+			}
+			.alert-warning {
+			    color: #8a6d3b;
+			    background-color: #fcf8e3; 
+			    border-color: #faebcc;
+			}
+			.alert {
+			    padding: 15px;
+			    margin-bottom: 10px;
+			    border: 1px solid transparent;
+			    border-radius: 4px;
+			}
+    </style>
+</head>
+
+	
+	  
+    <body>
+
+
+		
+    
+<div class="login">
+	<div class="login-bottom login-bottom-top">
+		<div><img th:src="@{/resources/myimages/KA.png}" alt="Khmer Academy Logo" class="img-responsive"></div>
+		<h2>LOGIN</h2>
+		<p>With your social media account</p>
+	 <div class="social-icons">
+		<div class="button">
+			<a style="width:100%" class="fa" id="btFB" href="#/facebook/signin" th:href="@{#/facebook/signin}"> <i class="anc-fa"> </i> <span>Facebook</span>
+			</a>
+		
+		</div>
+		
+		
+		<div class="button">
+			<a style="width:100%" class="go" id="btGOOGLE" href="#/google/signin" th:href="@{#/google/signin}"><i class="anc-go"> </i><span>Google+</span></a>
+		</div>
+		
+		<div class="button">
+			<a style="width:100%" class="tw" id="btTWITTER" href="#/twitter/signin" th:href="@{#/twitter/signin}"><i class="anc-tw"> </i><span>Twitter</span></a>
+		</div> 
+		
+		<div class="or-container">
+                <hr class="or-hr">
+                <h2 id="or">OR</h2>
+    	</div>
+    
+    	<div class="button">
+			<a style="width:100%" class="ka" id="btLoginWithKA" href="#KhmerAcademy" th:href="@{#KhmerAcademy}"><i class="khmeracademy"> </i><span>KhmerAcademy</span></a>
+		</div>
+		
+	</div>
+  </div>
+
+	
+	<div id="loginDiv" style="display: none">
+	
+		<form action="login" name="frmLogin" id="frmLogin" method="POST" autocomplete="off">
+			
+			<input type="text" class="email" disabled name="email" placeholder="Email"/>
+			
+			<input type="password" class="lock" disabled name="password" placeholder="Password"/>
+		
+			<div class="login-bwn">
+			   <input type="submit" disabled value="Log in"/>
+			</div>
+			
+		</form>
+		
+		
+	
+	</div>	
+	
+	
+		<div class="forgot"> 
+		 	<div class="login-para">
+		 		<p><a href="#forget_password"> Forgot Password? </a></p>
+		 	</div>
+			<div class="clear"> </div>
+		</div>
+		
+		<div class="login-bottom">
+			 <div class="social-icons">
+				<h4>Don't have an Account? <a href="#register"> Register Now!</a></h4>
+			</div>
+	    </div>
+	
+	
+</div>
+<div class="one-knongdai">
+	<p>One KnongDai account for everything in KnongDai</p>
+	<div class="logo-strip"></div>
+</div>
+  
+    
+<script type="text/javascript">
+		
+
+        $(function() {
+
+        	$("#btLoginWithKA").click(function(e){
+        		$("#loginDiv").toggle();
+        	});
+        	
+        	$("#btFB").click(function(e){
+    			location.href = "/facebook/signin";
+        	});
+        	
+        	$("#btGOOGLE").click(function(e){
+    			location.href = "/google/signin";
+        	});
+        	
+        	$("#btTWITTER").click(function(e){
+    			location.href = "/twitter/signin";
+        	});
+        	
+        	
+        	
+        	
+        	
+        	
+        	$("#frmLogin").submit(function(e){
+         		  e.preventDefault();
+         		  
+         			console.log( $("#frmLogin").serialize() );
+         		
+         			   
+  		            	$.ajax({
+  			  	            url: "/login",
+  			  	            type: "POST",
+  			  	            data: $("#frmLogin").serialize(),
+  			  	            success: function(data) {
+  			  	            	if(data == "Inactive"){
+  			  	            		myAlert("Your account is inactive. Please go to your mailbox and click on confrimation link to active your account!");
+  			  	            	}else if(data == "User account is locked"){
+  			  	            		myAlert(data);
+  			  	            	}else if(data == "User is disabled"){
+  			  	            		myAlert(data);
+  			  	            	}else if(data == "Bad credentials"){
+  			  	            		myAlert("Incorrect email or password! please try again!");
+  									ValidateForm(frmLogin.email,frmLogin.password);
+  									
+  			  	            	}else{
+  			  	            		myAlert("Logined success. " ); //+ data + " " + $("#continueSite").text());
+  			  	            		swal({   
+  			  	            			title: "Logined success.!",   
+  			  	            			text: "It will close in 2 seconds.",   
+  			  	            			timer: 2000,  
+										showConfirmButton: false 
+									});
+  									//alert(data);
+  			  	            		setCookie("KD_USER_HASH", data);
+  			  	            		isAuthenticated($("#continueSite").text());
+  			  	            	}
+  			  	            },
+  			  	         	error: function(data){
+  			  	         		console.log(data);
+  			  				}
+  			  	        });
+  	              		
+  	            
+         			
+  	       		
+         			
+         		});
+        	
+        	
+        	
+        });
+
+        </script>
+        
+        
+
+		
+    </body>
+</html>

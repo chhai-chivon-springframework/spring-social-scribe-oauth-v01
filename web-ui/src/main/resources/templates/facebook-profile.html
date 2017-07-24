@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" ><head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h1>Login with facebook successfully</h1>
+
+<div th:inline="text">
+
+    <img th:src="${#authentication.principal.imageUrl}">
+    <h3>Username: [[${#authentication.principal.username}]]</h3>
+    <h3>Email: [[${#authentication.principal.email}]]</h3>
+    <h3>Social Id: [[${#authentication.principal.socialId}]]</h3>
+    <h3>Social Type: [[${#authentication.principal.socialType}]]</h3>
+
+
+</div>
+
+
+</body>
+</html>

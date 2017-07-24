@@ -1,0 +1,7 @@
+# Datasource configuration
+spring:
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+server:
+  port: 8080

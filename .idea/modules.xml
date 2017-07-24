@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/entities/entities.iml" filepath="$PROJECT_DIR$/entities/entities.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repositories/repositories.iml" filepath="$PROJECT_DIR$/repositories/repositories.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/services.iml" filepath="$PROJECT_DIR$/services/services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-social-scribe-oauth.iml" filepath="$PROJECT_DIR$/spring-social-scribe-oauth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-service/web-service.iml" filepath="$PROJECT_DIR$/web-service/web-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-ui/web-ui.iml" filepath="$PROJECT_DIR$/web-ui/web-ui.iml" />
+    </modules>
+  </component>
+</project>

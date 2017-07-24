@@ -1,0 +1,32 @@
+.login form .register input[type="password"]{
+	outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 20px 10px 45px;
+    border: 1px solid lightgray;
+    margin: 0 auto 5px;
+    width: 60%;
+    height: 24px;
+    -webkit-appearance: none;
+    color: #000;
+}
+
+.login form .register input[type="text"] {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    padding: 10px 20px 10px 46px;
+    border: 1px solid lightgray;
+    /* border-radius: 5px; */
+    margin: 0 auto 5px;
+    width: 60%;
+    height: 24px;
+    -webkit-appearance: none;
+}
+
+.login form input.email {
+  background: url(../images/mail.png) no-repeat 15px 7px #fff;
+  display: block;
+  z-index: 900;
+}
