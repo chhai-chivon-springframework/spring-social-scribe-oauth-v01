@@ -2,9 +2,9 @@
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/ArticleMG
-    username: postgres
-    password: 123456
+    url: jdbc:postgresql://110.74.194.124:5432/tolatest
+    username: tolatest
+    password: tolatest
   thymeleaf:
     cache: false
     mode: LEGACYHTML5
